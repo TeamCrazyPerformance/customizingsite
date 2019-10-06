@@ -15,9 +15,24 @@ html, body {
     top: 0;
     left: 0;
     bottom: 0;
-    padding: 0;
+    padding: 58px 0 58px 0;
     width: 394px;
     height: 100%;
+}
+
+#sidebar .side-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+#sidebar .side-text {
+    margin: 80px 66px;
+    color: #ffc870;
+    font-size: 24px;
+    font-weight: bold;
+    line-height:2.0em;
 }
 
 #header {
