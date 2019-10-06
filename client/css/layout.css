@@ -47,8 +47,8 @@ html, body {
 }
 
 #content {
-    height: 100%;
-    margin: 58px 0 58px 394px;
+    height: calc(100% - 116px);
+    margin: 58px 0 0 394px;
     overflow-y: scroll;
 }
 
