@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookmark2</title>
+    <link rel="stylesheet" href="./bookmark2.css">
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+<div class="bookmark-title">
+    MY BOOKMARK
+    <div class="bookmark-greeting">
+        클릭해서 즐거운 검색을 시작하세요 :)
+    </div>
+</div>
+
+<div class="bookmark-clock">
+    <div class="bookmark-date"></div>
+    <div class="bookmark-time"></div>
+</div>
+
+    <div class="container" id ="container_add" style="overflow-y:scroll; height:550px;">
+
+        <a href="https://google.co.kr">
+            <div class="bookmark-item G">
+                <div class="bookmark-icon">
+                   G
+                    <span class="bookmark-desc">
+                        구글
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item N">
+                <div class="bookmark-icon">
+                  N
+                    <span class="bookmark-desc">
+                    네이버
+                </span>
+                </div>
+
+            </div>
+        </a>
+
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item Y">
+                <div class="bookmark-icon">
+                    Y
+                    <span class="bookmark-desc">
+                    유튜버
+                </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item M">
+                <div class="bookmark-icon">
+                    M
+                    <span class="bookmark-desc">
+                        이메일
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item I">
+                <div class="bookmark-icon">
+                    I
+                    <span class="bookmark-desc">
+                        인스타그램
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item A">
+                <div class="bookmark-icon">
+                    A
+                    <span class="bookmark-desc">
+                        아마존
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item T">
+                <div class="bookmark-icon">
+                    T
+                    <span class="bookmark-desc">
+                        트위터
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item S">
+                <div class="bookmark-icon">
+                    s
+                    <span class="bookmark-desc">
+                        쇼핑몰
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item W">
+                <div class="bookmark-icon">
+                    W
+                    <span class="bookmark-desc">
+                        웹툰
+                    </span>
+                </div>
+
+            </div>
+        </a>
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item P">
+                <div class="bookmark-icon">
+                    P
+                    <span class="bookmark-desc">
+                        핀더레스트
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="https://naver.co.kr">
+            <div class="bookmark-item E">
+                <div class="bookmark-icon">
+                    E
+                    <span class="bookmark-desc">
+                        이클래스
+                    </span>
+                </div>
+
+            </div>
+        </a>
+
+        <a href="javascript:openPop()" id ="add_button">
+            <div class="bookmark-item">
+                <div class="bookmark-icon">
+                    +
+                </div>
+
+            </div>
+        </a>
+
+
+    </div>
+
+
+<div id="registerPop" style="display:none;">
+    <div style="background-color:white;text-align:center;width:30%;left:35%;">
+        <table>
+            <tr>
+                <th>
+                    color
+                </th>
+                <td>
+                    <input type="color" id="color_add" placeholder="white"/>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    url
+                </th>
+                <td>
+                    <input type="text" id="url_add" placeholder="bookmark.com"/>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    title
+                </th>
+                <td>
+                    <input type="text" id="title_add" placeholder="bookmark"/>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    initial
+                </th>
+                <td>
+                    <input type="text" id="initial_add" placeholder="BM"/>
+                </td>
+            </tr>
+            <tr>
+               <button onclick="javascript:addContent();">add</button>
+            </tr>
+        </table>
+
+</div>
+
+</div>
+
+
+<script type="text/javascript" src="bookmark2-clock.js"></script>
+<script type="text/javascript" src="bookmark2-popUp.js"></script>
+</body>
+</html>
