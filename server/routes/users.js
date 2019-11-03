@@ -22,8 +22,7 @@ router.post('/register', function(req, res, next) {
 
   db.query(query, function(err, rows) {
     if(err) {
-      res.status(500);
-      res.json({"errorMsg" : "Database connection error"});
+      res.status(500).json({"errorMsg" : "Database connection error"});
     } else {
       if(rows.length === 0) {
         var query = "INSERT INTO ?? SET ?";
@@ -32,16 +31,13 @@ router.post('/register', function(req, res, next) {
 
         db.query(query, user, function(err, rows) {
           if (err) {
-            res.status(500);
-            res.json({"errorMsg" : "Cannot register user"});
+            res.status(500).json({"errorMsg" : "Cannot register user"});
           } else {
-            res.status(201);
-            res.json({"message" : "Success"});
+            res.status(201).json({"message" : "Success"});
           }
         });
       } else {
-        res.status(406);
-        res.json({"errorMsg" : "Email already exists"});
+        res.status(406).json({"errorMsg" : "Email already exists"});
       }
     }
   })
