@@ -25,15 +25,15 @@ $(document).on('click','.gg-element',function(){
   var content=buttons();
   $("#gg-screen").html('<div class="gg-image"></div>' + content);
   $(".gg-image").html('<img src="'+ $('img', this).attr('src') +'">');
-  $("body").css('overflow','hidden');
+  //$("body").css('overflow','hidden');
   $(document).on('click','.gg-close',function(){
     $("#gg-screen").hide();
-    $("body").css('overflow','auto');
+    //$("body").css('overflow','auto');
   });
   $("#gg-screen").on('click', function(e) {
     if (e.target == this){
       $("#gg-screen").hide();
-      $("body").css('overflow','auto');
+      //$("body").css('overflow','auto');
     }
   });
   $(document).on('click','.gg-prev',function(){
