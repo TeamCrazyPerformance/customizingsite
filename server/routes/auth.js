@@ -5,35 +5,43 @@ var bcrypt = require('bcrypt-nodejs');
 var db = require('../db');
 var jwt = require('jsonwebtoken');
 var config = require('../config');
+const { check, validationResult } = require('express-validator');
 
-router.post('/login', function(req, res, next) {
-    var user = {
-        email: req.body.email,
-        password: req.body.password
-    };
+router.post('/login', [
+    check('email').isEmail(),
+    check('password').isString(),
+    check('password').isLength({ min: 4, max: 20 })
+    ], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errorMsg: "Bad Parameter", errors: errors.array() })
+    }
 
-    var query = "SELECT email, password FROM ?? WHERE ??=?";
-    var table = ["user", "email", user.email];
+    const email = req.body.email;
+    const password = req.body.password;
+
+    let query = "SELECT email, password FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
     query = mysql.format(query, table);
 
     db.query(query, function(err, rows) {
         if(err) {
-            res.status(500).json({"errorMsg" : "Database connection error"});
+            res.status(500).json({errorMsg : "Database connection error"});
         } else {
-            if(rows.length === 1 && bcrypt.compareSync(user.password, rows[0].password)) {
-                var payload = {
-                    email: user.email
+            if(rows.length === 1 && bcrypt.compareSync(password, rows[0].password)) {
+                const payload = {
+                    email: email
                 };
-                var options = {
+                const options = {
                     expiresIn: config.expiresIn
                 };
                 jwt.sign(payload, config.secret, options, function(err, token) {
                    if(err)
-                       return res.status(500).json({"errorMsg" : "Internal server problem"});
-                   res.json({"token" : token});
+                       return res.status(500).json({errorMsg : "Internal server problem"});
+                   res.json({token : token});
                 });
             } else {
-                res.status(406).json({"errorMsg" : "Email or Password is invalid"});
+                res.status(406).json({errorMsg : "Email or Password is invalid"});
             }
         }
     })
