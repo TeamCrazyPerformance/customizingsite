@@ -5,11 +5,6 @@ var bcrypt = require('bcrypt-nodejs');
 var db = require('../db');
 const { check, validationResult } = require('express-validator');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 router.post('/register', [
     check('email').isEmail(),
     check('password').isString(),
