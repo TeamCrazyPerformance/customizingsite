@@ -1,0 +1,123 @@
+body {
+    background-image: url("../img/background.jpeg");
+    background-size: cover;
+}
+.bookmark-title {
+    font-size: 55px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 3px #424242;
+    position: relative;
+    top:70px;
+    padding: 80px;
+}
+
+.bookmark-greeting{
+    font-size: 27px;
+    padding-top: 15px;
+
+}
+
+.bookmark-clock{
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 3px #424242;
+    position: relative;
+    top:70px;
+    padding: 10px 10px 10px 80px;
+}
+
+.bookmark-time{
+    padding: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 155px 155px 155px 155px;
+    grid-template-rows: 163px 163px 163px;
+    grid-gap: 45px;
+    padding: 40px;
+    position: fixed;
+    top: 70px;
+    left: 40%;
+
+}
+
+
+.bookmark-item {
+    display: flex;
+    flex-direction: column;
+    box-shadow:4px 4px 4px 4px #424242;
+    border-radius: 35px;
+    background-color:rgba(242,242,242, 0.3) ;
+
+
+}
+
+.bookmark-icon{
+    display: flex;
+    flex-direction: column;
+    width: 87px;
+    height: 87px;
+    border-radius: 50%;
+    background-color: gray ;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    margin: 34px;
+    line-height:90px;
+    align-self: center;
+    opacity: 1;
+
+}
+
+.bookmark-desc{
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    line-height: 35px;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.G>.bookmark-icon, .G:hover{
+    background-color: #58ACFA;
+}
+
+.N>.bookmark-icon, .N:hover{
+    background-color: #58FA58;
+}
+.Y>.bookmark-icon, .Y:hover{
+    background-color: #FF0000;
+}
+
+.M>.bookmark-icon, .M:hover{
+    background-color: #FDF518;
+}
+.I>.bookmark-icon, .I:hover{
+    background-color: #FF00BF;
+}
+.A>.bookmark-icon, .A:hover{
+    background-color: #FFBF00;
+}
+.T>.bookmark-icon, .T:hover{
+    background-color: #81F7F3;
+}
+.S>.bookmark-icon, .S:hover{
+    background-color: #BE81F7;
+}
+.W>.bookmark-icon, .W:hover{
+    background-color: #BEF781;
+}
+.P>.bookmark-icon, .P:hover{
+    background-color: #FA5882;
+}
+.E>.bookmark-icon, .E:hover{
+    background-color: #088A68;
+}

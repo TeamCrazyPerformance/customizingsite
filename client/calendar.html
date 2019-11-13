@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <title>Calendar</title>
+</head>
+<body>
+<div class="main">
+    <div class="content-wrap">
+        <!-- main date + todolist -->
+        <div class="content-left">
+            <!-- main date -->
+            <div class="main-wrap">
+                <div id="main-day" class="main-day"></div>
+                <div id="main-date" class="main-date"></div>
+            </div>
+            <!-- todolist -->
+            <div class="todo-wrap">
+                <div class="todo-title">Todo List</div>
+                <div class="input-wrap">
+                    <!-- input -->
+                    <input type="text" placeholder="please write here!" id="input-box" class="input-box">
+                    <button type="button" id="input-data" class="input-data">INPUT</button>
+                    <!-- input list -->
+                    <div id="input-list" class="input-list"></div>
+                </div>
+            </div>
+        </div>
+        <!-- calendar -->
+        <div class="content-right">
+            <table id="calendar" align="center">
+                <!-- change the month and year-->
+                <thead>
+                <tr class="btn-wrap clearfix">
+                    <td>
+                        <label id="prev">
+                            &#60;
+                        </label>
+                    </td>
+                    <td align="center" id="current-year-month" colspan="5"></td>
+                    <td>
+                        <label id="next">
+                            &#62;
+                        </label>
+                    </td>
+                </tr>
+                <!-- day -->
+                <tr>
+                    <td class="sun" align="center">Sun</td>
+                    <td align="center">Mon</td>
+                    <td align="center">Tue</td>
+                    <td align="center">Wed</td>
+                    <td align="center">Thu</td>
+                    <td align="center">Fri</td>
+                    <td class="sat" align="center">Sat</td>
+                </tr>
+                </thead>
+                <tbody id="calendar-body" class="calendar-body"></tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/calendar-show.js"></script>
+    <script type="text/javascript" src="js/calendar-moveMonth.js"></script>
+    <script type="text/javascript" src="js/calendar-moveDate.js"></script>
+</body>
+</html>
