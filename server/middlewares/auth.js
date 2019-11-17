@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
     try {
-        req.decoded = jwt.verify(req.headers.authorization, config.secret);
+        req.decoded = jwt.verify(req.headers['x-access-token'], config.secret);
         return next();
     } catch (e) {
         if (e.name === 'TokenExpiredError') {
