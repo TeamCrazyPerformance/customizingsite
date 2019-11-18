@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookmark2</title>
-    <link rel="stylesheet" href="../css/bookmark.css">
-    <script src="../javascript/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/bookmark.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,8 @@
 </div>
 
     <div class="container" id ="container_add" style="overflow-y:scroll; height:550px;">
-
+        <div id="delete_g" class="delete"  onclick="removePop('g')">
+            x
         <a href="https://google.co.kr">
             <div class="bookmark-item G">
                 <div class="bookmark-icon">
@@ -35,7 +36,10 @@
 
             </div>
         </a>
+        </div>
 
+        <div id="delete_n" class="delete"  onclick="removePop('n')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item N">
                 <div class="bookmark-icon">
@@ -47,20 +51,24 @@
 
             </div>
         </a>
+        </div>
 
 
-        <a href="https://naver.co.kr">
-            <div class="bookmark-item Y">
+        <div id="delete_y" class="delete"  onclick="removePop('y')">
+                x
+            <a href="https://naver.co.kr" class="bookmark-item Y" >
+
                 <div class="bookmark-icon">
                     Y
                     <span class="bookmark-desc">
                     유튜버
                 </span>
                 </div>
-
+            </a>
             </div>
-        </a>
 
+        <div id="delete_m" class="delete"  onclick="removePop('m')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item M">
                 <div class="bookmark-icon">
@@ -72,7 +80,10 @@
 
             </div>
         </a>
+        </div>
 
+        <div id="delete_i" class="delete"  onclick="removePop('i')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item I">
                 <div class="bookmark-icon">
@@ -84,7 +95,9 @@
 
             </div>
         </a>
-
+        </div>
+        <div id="delete_a" class="delete"  onclick="removePop('a')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item A">
                 <div class="bookmark-icon">
@@ -96,7 +109,10 @@
 
             </div>
         </a>
+        </div>
 
+        <div id="delete_t" class="delete"  onclick="removePop('t')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item T">
                 <div class="bookmark-icon">
@@ -108,11 +124,14 @@
 
             </div>
         </a>
+        </div>
 
+        <div id="delete_s" class="delete"  onclick="removePop('s')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item S">
                 <div class="bookmark-icon">
-                    s
+                    S
                     <span class="bookmark-desc">
                         쇼핑몰
                     </span>
@@ -120,7 +139,10 @@
 
             </div>
         </a>
+        </div>
 
+        <div id="delete_w" class="delete"  onclick="removePop('w')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item W">
                 <div class="bookmark-icon">
@@ -132,6 +154,10 @@
 
             </div>
         </a>
+        </div>
+
+        <div id="delete_p" class="delete"  onclick="removePop('p')">
+            x
         <a href="https://naver.co.kr">
             <div class="bookmark-item P">
                 <div class="bookmark-icon">
@@ -143,6 +169,10 @@
 
             </div>
         </a>
+        </div>
+
+        <div id="delete_m" class="delete"  onclick="removePop('m')">
+            x
 
         <a href="https://naver.co.kr">
             <div class="bookmark-item E">
@@ -155,8 +185,12 @@
 
             </div>
         </a>
-    <div class="addVBBtn">
-        <a href="javascript:openPop()" id ="add_button">
+        </div>
+
+        <div id="delete_plus" class="delete"  onclick="removePop('plus')">
+            x
+    <div class="addVBBtn"  id ="add_button">
+        <a href="javascript:openPop()">
             <div class="bookmark-item">
                 <div class="bookmark-icon">
                     +
@@ -166,6 +200,7 @@
         </a>
     </div>
 
+    </div>
     </div>
 
 
@@ -198,7 +233,7 @@
                     color
                 </th>
                 <td>
-                    <input type="color" id="color_add" placeholder="white"/>
+                    <input type="color" id="color_add" placeholder="white" onchange="javascript:turn_off_colorpicker();"/>
                 </td>
             </tr>
             <tr>
@@ -212,7 +247,7 @@
             <tr>
                 <td class="td-btn">
                 <button class="btn" id="clickAdd" onclick="addContent();">
-                    취
+                    취소
                 </button>
                 </td>
                 <td class="td-btn">
@@ -227,7 +262,7 @@
 </div>
 
 
-<script type="text/javascript" src="../javascript/bookmark-clock.js"></script>
-<script type="text/javascript" src="../javascript/bookmark-popUp.js"></script>
+<script type="text/javascript" src="js/bookmark-clock.js"></script>
+<script type="text/javascript" src="js/bookmark-popUp.js"></script>
 </body>
 </html>

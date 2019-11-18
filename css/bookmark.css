@@ -1,5 +1,5 @@
 body {
-    background-image: url("../img/배경2.jpeg");
+    background-image: url("../img/background.jpeg");
     background-size: cover;
 }
 .bookmark-title {
@@ -39,7 +39,7 @@ body {
     grid-gap: 45px;
     padding: 40px;
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 40%;
 
 }
@@ -120,4 +120,21 @@ a {
 }
 .E>.bookmark-icon, .E:hover{
     background-color: #088A68;
+}
+table {
+    width: 20%;
+    height: 30%;
+    box-shadow:4px 4px 4px 4px #424242;
+    border-radius: 35px;
+    background-color:rgba(242,242,242, 0.3) ;
+    text-align: center;
+    position: relative;
+    top: 90%;
+    left: 5%;
+}
+
+.delete {
+   text-align:right;
+    display: inline;
+    cursor: pointer;
 }

@@ -7,7 +7,7 @@ function clock(){
     const clock= new Date();
 
     const year = clock.getFullYear();
-    const month = clock.getMonth();
+    const month = clock.getMonth()+1;
     const day = clock.getDate();
     const hours = clock.getHours();
     const minutes = clock.getMinutes();
