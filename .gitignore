@@ -3,3 +3,4 @@ client/.idea
 server/.idea
 db.js
 .idea/
+config.json
