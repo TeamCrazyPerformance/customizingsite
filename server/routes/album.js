@@ -51,6 +51,69 @@ router.get('/', authMiddleware, function(req, res, next) {
     });
 });
 
+// Edit or Create Album
+router.post('/', authMiddleware, function(req, res, next) {
+    const email = req.decoded.email;
+
+    let query = "SELECT user_id, email FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+                let query = "SELECT user_id FROM ?? WHERE ??=?";
+                const table = ["album", "user_id", user_id];
+                query = mysql.format(query, table);
+
+                db.query(query, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg: "Database connection error"});
+                    } else {
+                        if(rows.length === 1) {
+                            let query = "UPDATE album SET handwritten = ?, description = ?, public = ? WHERE user_id=?";
+                            const table = [req.body.handwritten, req.body.description, req.body.isPublic, user_id];
+                            query = mysql.format(query, table);
+
+                            db.query(query, function(err, rows) {
+                                if (err) {
+                                    res.status(500).json({errorMsg : "Cannot Save Album"});
+                                } else {
+                                    res.status(201).json({message : "Success"});
+                                }
+                            });
+                        } else {
+                            let query = "INSERT INTO ?? SET ?";
+                            const table = ["album"];
+                            query = mysql.format(query, table);
+
+                            const album = {
+                                user_id: user_id,
+                                handwritten: req.body.handwritten,
+                                description: req.body.description,
+                                public: req.body.isPublic
+                            };
+
+                            db.query(query, album, function(err, rows) {
+                                if (err) {
+                                    res.status(500).json({errorMsg : "Cannot Save Album"});
+                                } else {
+                                    res.status(201).json({message : "Success"});
+                                }
+                            });
+                        }
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "User Not Found"});
+            }
+        }
+    });
+});
+
 // Album Info By Account
 router.get('/:account', function(req, res, next) {
     const account = req.params.account;
