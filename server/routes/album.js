@@ -51,4 +51,54 @@ router.get('/', authMiddleware, function(req, res, next) {
     });
 });
 
+// Album Info By Account
+router.get('/:account', function(req, res, next) {
+    const account = req.params.account;
+
+    let query = "SELECT user_id FROM ?? WHERE ??=?";
+    const table = ["user_account", "account", account];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+                let query = "SELECT user_id, handwritten, description, public FROM ?? WHERE ??=?";
+                const table = ["album", "user_id", user_id];
+                query = mysql.format(query, table);
+
+                db.query(query, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg: "Database connection error"});
+                    } else {
+                        let handwritten = null;
+                        let description = null;
+                        let is_public = null;
+
+                        if(rows.length === 1) {
+                            handwritten = rows[0].handwritten;
+                            description = rows[0].description;
+                            is_public = !!rows[0].public;
+                        }
+
+                        if (is_public) {
+                            res.json({
+                                handwritten: handwritten,
+                                description: description,
+                                isPublic: is_public
+                            });
+                        } else {
+                            res.status(403).json({errorMsg: "Not a public account"});
+                        }
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "Account Not Found"});
+            }
+        }
+    });
+});
+
 module.exports = router;
