@@ -3,6 +3,7 @@ var router = express.Router();
 var mysql = require('mysql');
 var db = require('../db');
 var authMiddleware = require('../middlewares/auth');
+const { check, validationResult } = require('express-validator');
 
 // My Album Info
 router.get('/', authMiddleware, function(req, res, next) {
@@ -52,7 +53,16 @@ router.get('/', authMiddleware, function(req, res, next) {
 });
 
 // Edit or Create Album
-router.post('/', authMiddleware, function(req, res, next) {
+router.post('/', authMiddleware, [
+    check('handwritten').isString(),
+    check('description').isString(),
+    check('isPublic').isBoolean()
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errorMsg: "Bad Parameter", errors: errors.array() })
+    }
+
     const email = req.decoded.email;
 
     let query = "SELECT user_id, email FROM ?? WHERE ??=?";
