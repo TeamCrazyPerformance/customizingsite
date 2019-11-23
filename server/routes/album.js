@@ -1,9 +1,28 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 var mysql = require('mysql');
 var db = require('../db');
 var authMiddleware = require('../middlewares/auth');
 const { check, validationResult } = require('express-validator');
+const uuid = require('uuid');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
+const AWS = require('aws-sdk');
+AWS.config.loadFromPath(__dirname + '/../config.json');
+let s3 = new AWS.S3();
+
+let upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: 'customizingsite',
+        key: function (req, file, cb) {
+            let extension = path.extname(file.originalname);
+            cb(null, 'album/' + uuid.v4() + extension);
+        },
+        acl: 'public-read-write',
+    })
+});
 
 // My Album Info
 router.get('/', authMiddleware, function(req, res, next) {
@@ -115,6 +134,60 @@ router.post('/', authMiddleware, [
                                 }
                             });
                         }
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "User Not Found"});
+            }
+        }
+    });
+});
+
+// Upload Image
+router.post('/upload', authMiddleware, upload.single("imgFile"), [
+    check('title').isString(),
+    check('title').isLength({ min: 1, max: 20 }),
+    check('description').isString(),
+    check('date').isString(),
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errorMsg: "Bad Parameter", errors: errors.array() })
+    }
+
+    const email = req.decoded.email;
+
+    let query = "SELECT user_id, email FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                let imgFile = req.file;
+
+                const user_id = rows[0].user_id;
+                const img_key = imgFile.key;
+
+                let query = "INSERT INTO ?? SET ?";
+                const table = ["album_item"];
+                query = mysql.format(query, table);
+
+                const album_item = {
+                    user_id: user_id,
+                    img_key: img_key,
+                    title: req.body.title,
+                    description: req.body.description,
+                    date: req.body.date
+                };
+
+                db.query(query, album_item, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg : "Cannot Save Album Item"});
+                    } else {
+                        res.status(201).json({message : "Success"});
                     }
                 });
             } else {
