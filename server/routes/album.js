@@ -252,10 +252,31 @@ router.get('/:account', function(req, res, next) {
                         }
 
                         if (is_public) {
-                            res.json({
-                                handwritten: handwritten,
-                                description: description,
-                                isPublic: is_public
+                            let query = "SELECT item_id, img_key, title, description, date FROM ?? WHERE ??=?";
+                            const table = ["album_item", "user_id", user_id];
+                            query = mysql.format(query, table);
+
+                            db.query(query, function(err, rows) {
+                                if (err) {
+                                    res.status(500).json({errorMsg: "Database connection error"});
+                                } else {
+                                    let items = [];
+                                    rows.forEach((v, k) => {
+                                        items.push({
+                                            itemId: v.item_id,
+                                            imgKey: v.img_key,
+                                            title: v.title,
+                                            description: v.description,
+                                            date: v.date,
+                                        });
+                                    });
+
+                                    res.json({
+                                        handwritten: handwritten,
+                                        description: description,
+                                        items: items
+                                    });
+                                }
                             });
                         } else {
                             res.status(403).json({errorMsg: "Not a public account"});
