@@ -219,6 +219,48 @@ router.post('/upload', authMiddleware, upload.single("imgFile"), [
     });
 });
 
+// Delete Album Item
+router.delete('/:itemId', authMiddleware, function(req, res, next) {
+    const email = req.decoded.email;
+
+    let query = "SELECT user_id, email FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+
+                let query = "DELETE FROM ?? WHERE ??=? AND ??=?";
+                const table = ["album_item", "item_id", req.params.itemId, "user_id", user_id];
+                query = mysql.format(query, table);
+
+                db.query(query, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg : "Cannot Delete Album Item"});
+                    } else {
+                        /*
+                        TODO remove s3 bucket
+                        var params = {  Bucket: 'your bucket', Key: 'your object' };
+                        s3.deleteObject(params, function(err, data) {
+                            if (err) console.log(err, err.stack);  // error
+                            else     console.log();                 // deleted
+                        });
+                        */
+
+                        res.json({message : "Success"});
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "User Not Found"});
+            }
+        }
+    });
+});
+
 // Album Info By Account
 router.get('/:account', function(req, res, next) {
     const account = req.params.account;
