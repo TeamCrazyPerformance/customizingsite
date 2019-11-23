@@ -1,11 +1,11 @@
 html, body{
-    background-color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
-}
+            background-color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+        }
 .main{
     width: 100%;
     display: block;
-    background: #ababab;
+    background: #FFFFFF;
 }
 .content-wrap{
     width: 100%;
@@ -13,11 +13,11 @@ html, body{
     border: 4px solid rgba(161, 161, 161, 0.5);
     border-radius: 20px;
     overflow: hidden;
-    background: #ddaf35;
+    background: #FFFFFF;
 }
 .content-left{
-    background: #0b0809;
-    color:#ddaf35;
+    background: #FFBFA8;
+    color:#FF8981;
     float: left;
     width: 100%;
     padding: 30px;
@@ -29,11 +29,13 @@ html, body{
 .main-day{
     font-size: 30px;
     font-weight: bold;
+    color: #FF8981;
 }
 .main-date{
     font-size: 120px;
     font-weight: bold;
     margin: 20px 0;
+    color:#FF8981;
 }
 .todo-wrap{
     padding: 0 0 0 40px;
@@ -43,29 +45,34 @@ html, body{
     font-weight: 100;
     margin: 0 0 10px 0;
 }
+
 .input-box{
     width: 50%;
     margin-right: 20px;
     height: auto;
-    background: #0b0809;
-    color: #ddaf35;
+    background: #FFBFA8;
+    color: #FFFFFF;
     line-height : normal;
-    padding: .8em .5em 0 0;
+    padding: 7px;
     font-family: inherit;
-    border: 0;
-    border-bottom: 1px dashed #ddaf35;;
-    border-radius: 0;
+
+    border: 1px dashed #FF8981;
+    border-radius: 10px;
     outline-style: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+.input-box::placeholder{
+    color:#585858;
+    opacity: 60%;
 }
 .input-data{
     cursor: pointer;
     font-size: 10px;
     padding: 10px;
     margin: 10px 0 10px 0;
-    background: #ddaf35;
+    background: #FF8981;
     border: none;
     color: #0b0809;
     border-radius: 10px;
@@ -75,26 +82,29 @@ html, body{
     color: #0b0809;
 }
 .input-list > div{
-    font-size: 10px;
+    font-size: 15px;
     width: 60%;
     float: left;
-    color: #ddaf35;
+    color: #F2F2F2;
+    margin-bottom: 20px;
 }
 .input-list > .checked{
     color: #FFFFFF;
-    text-decoration:line-through
+    text-decoration:line-through;
 }
 .del-data{
     display: block;
-    color: #ddaf35;
+    color:#FF8981 ;
+    font-weight:bold;
     float: left;
     width: 10%;
     cursor: pointer;
     font-size: 10px;
     padding: 10px;
-    background: #0b0809;
+    background: none;
     border: none;
     border-radius: 10px;
+    margin-left: 42px;
 }
 .content-right{
     float: left;
@@ -115,7 +125,7 @@ html, body{
     font-weight: bold;
 }
 .active{
-    background: #0b0809;
+    background: #FFBFA8;
     border-radius: 50%;
     color: #ffffff;
 }
@@ -127,7 +137,7 @@ html, body{
         justify-content:  center;
         width: 100vw;
         height: 100vh;
-        background: #ababab;
+        background: none;
     }
     .content-wrap{
         width: 800px;
@@ -136,11 +146,11 @@ html, body{
         border: 4px solid rgba(161, 161, 161, 0.5);
         border-radius: 20px;
         overflow: hidden;
-        background: #ddaf35;
+        background: #FFFFFF;
     }
     .content-left{
-        background: #0b0809;
-        color:#ddaf35;
+        background: #FFBFA8;
+        color:#FF8981;
         float: left;
         width: 360px;
         height: 600px;
@@ -164,20 +174,21 @@ html, body{
     }
     .todo-title{
         font-size: 20px;
-        font-weight: 100;
+        font-weight: bolder;
         margin: 0 0 10px 0;
+
     }
     .input-box{
         width: 70%;
         height: auto;
-        background: #0b0809;
-        color: #ddaf35;
+        background: #FFBFA8;
+        color: #FFFFFF;
         line-height : normal;
-        padding: .8em .5em 0 0;
+        padding: 7px;
         font-family: inherit;
-        border: 0;
-        border-bottom: 1px dashed #ddaf35;;
-        border-radius: 0;
+
+        border: 1px dashed #FF8981;
+        border-radius: 10px;
         outline-style: none;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -188,7 +199,7 @@ html, body{
         font-size: 10px;
         padding: 10px;
         margin: 20px 0 30px 0;
-        background: #ddaf35;
+        background: #FF8981;
         border: none;
         color: #0b0809;
         border-radius: 10px;
@@ -198,20 +209,22 @@ html, body{
         color: #0b0809;
     }
     .input-list > div{
-        font-size: 10px;
+        font-size: 15px;
         width: 60%;
         float: left;
-        color: #ddaf35;
+        color: #F2F2F2;
+        margin-bottom: 20px;
     }
     .del-data{
         display: block;
-        color: #ddaf35;
+        color:#FF8981 ;
+        font-weight:bold;
         float: left;
         width: 10%;
         cursor: pointer;
         font-size: 10px;
         padding: 10px;
-        background: #0b0809;
+        background:none;
         border: none;
         border-radius: 10px;
     }
@@ -235,8 +248,17 @@ html, body{
         font-weight: bold;
     }
     .active{
-        background: #0b0809;
+        background: #FFBFA8;
         border-radius: 50%;
-        color: #ffffff;
+        color: #FFFFFF;
     }
+
+}
+
+#prev, #next {
+    cursor: pointer;
+}
+
+tbody td {
+    cursor: pointer;
 }
