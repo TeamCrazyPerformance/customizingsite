@@ -133,7 +133,7 @@ router.post('/', authMiddleware, [
                                 if (err) {
                                     res.status(500).json({errorMsg : "Cannot Save Album"});
                                 } else {
-                                    res.status(201).json({message : "Success"});
+                                    res.json({message : "Success"});
                                 }
                             });
                         } else {
@@ -210,6 +210,49 @@ router.post('/upload', authMiddleware, upload.single("imgFile"), [
                         res.status(500).json({errorMsg : "Cannot Save Album Item"});
                     } else {
                         res.status(201).json({message : "Success"});
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "User Not Found"});
+            }
+        }
+    });
+});
+
+// Modify Album Item
+router.put('/:itemId', authMiddleware, [
+    check('title').isString(),
+    check('title').isLength({ min: 1, max: 20 }),
+    check('description').isString(),
+    check('date').isString(),
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errorMsg: "Bad Parameter", errors: errors.array() })
+    }
+
+    const email = req.decoded.email;
+
+    let query = "SELECT user_id, email FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+
+                let query = "UPDATE album_item SET title = ?, description = ?, date = ?, modified_date = current_timestamp() WHERE item_id=? AND user_id=?";
+                const table = [req.body.title, req.body.description, req.body.date, req.params.itemId, user_id];
+                query = mysql.format(query, table);
+
+                db.query(query, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg : "Cannot Modify Album Item"});
+                    } else {
+                        res.json({message : "Success"});
                     }
                 });
             } else {
