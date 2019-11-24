@@ -40,7 +40,6 @@ function showCalendar(){
 
 }
 
-
 showCalendar();
 function removeCalendar(){
     let catchTr = 100;
