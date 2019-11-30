@@ -1,0 +1,223 @@
+html, body{
+    background-color:#D8D8D8;
+    font-family: 'Roboto', sans-serif;
+}
+.main{
+    width: 100%;
+    display: block;
+    background: #FFFFFF;
+}
+.content-wrap{
+    width: 100%;
+    margin:0 auto;
+    border: 4px solid rgba(161, 161, 161, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFFFF;
+
+}
+.content-left{
+    background-image: url('../img/port.jpg');
+    background-size:100% 50% ;
+    background-repeat: no-repeat;
+    color:black;
+    float: left;
+    width: 100%;
+    padding: 30px;
+}
+
+
+
+.main-wrap{
+    text-align: center;
+    padding: 300px 0 0 0;
+}
+.main-year{
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+
+}
+.main-title{
+    font-size: 50px;
+    font-weight: bold;
+    margin: 20px 0;
+    color:black;
+}
+.menu-wrap{
+    padding: 0px 0 0 30px;
+
+}
+.menu{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 5px 50px 10px 0;
+    position: relative;
+    z-index: 1;
+}
+.menu:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 105%;
+    height: 2px;
+    border-bottom:2px solid #6E6E6E ;
+}
+
+
+.content-right{
+    float: left;
+    width: 90%;
+    padding: 10px;
+}
+
+
+.data-wrap {
+    position: relative;
+    left: 50%;
+    top: 5%;
+    display: block;
+    margin: 20px 0 20px 0;
+    padding: 0 0 20px 0;
+}
+.data-Ename {
+    font-size: 20px;
+    position: relative;
+    left: 70px;
+    margin-left: 130px;
+    padding: 0 0 0 30px;
+}
+
+.data-Kname{
+    font-size: 40px;
+    font-weight: bold;
+    position: relative;
+    left: 70px;
+    display: inline-block;
+    margin-left: 130px;
+    padding: 30px 0 5px 30px;
+}
+.data-photo{
+    height:10px;
+    width:5px;
+    margin-left: 30px;
+    padding: 30px;
+}
+
+
+
+
+.content-right table tr td{
+    float: bottom;
+    width: 40px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+
+@media(min-width: 850px){
+    .main{
+        display: flex;
+        align-items: center;
+        justify-content:  center;
+        width: 100vw;
+        height: 100vh;
+        background: none;
+    }
+    .content-wrap{
+        width: 1000px;
+        height: 600px;
+        margin:0 auto;
+        border: 4px solid rgba(161, 161, 161, 0.5);
+        border-radius: 5px;
+        overflow: hidden;
+        background: #FFFFFF;
+    }
+
+    .content-left{
+        background-img:url('../img/port.jpg');
+        color:black;
+        float: left;
+        width: 360px;
+        height: 600px;
+        padding: 90px 20px 20px 0;
+    }
+    .main-wrap{
+        text-align: center;
+        margin: 20px 0 0 0;
+    }
+    .main-year{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .main-title{
+        font-size: 50px;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    .data-wrap {
+        display: block;
+        margin: 20px 0 10px 0;
+        padding: 0 0 10px 0;
+        position: relative;
+        top: 1%;
+
+    }
+    .data-Ename {
+        font-size: 16px;
+        position: relative;
+        left: 70px;
+        padding: 0 0 0 45px;
+    }
+
+    .data-Kname{
+        font-size: 30px;
+        font-weight: bold;
+        position: relative;
+        left: 70px;
+        display: inline-block;
+        margin-left: 130px;
+        padding: 25px 0 20px 45px;
+    }
+    .data-photo{
+        height:7px;
+        width:3px;
+        margin-left: 30px;
+        padding: 30px;
+    }
+
+    .career {
+       overflow-y:scroll;
+        height:550px;
+    }
+
+
+
+    .content-right{
+        float: left;
+        width: 360px;
+        height: 600px;
+        padding: 80px 20px 20px 20px;
+    }
+
+    .content-right table tr td{
+        height: 10px;
+        width: 40px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: lighter;
+    }
+
+}
+
+
+/*
+1. color
+2. position
+
+*/
