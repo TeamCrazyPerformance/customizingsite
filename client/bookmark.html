@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +21,13 @@
     <div class="bookmark-time"></div>
 </div>
 
-    <div class="container" id ="container_add" style="overflow-y:scroll; height:550px;">
-
+<div class="container" id ="container_add" style="overflow-y:scroll; height:550px;">
+    <div id="delete_g" class="delete"  onclick="removePop('g')">
+        x
         <a href="https://google.co.kr">
             <div class="bookmark-item G">
                 <div class="bookmark-icon">
-                   G
+                    G
                     <span class="bookmark-desc">
                         구글
                     </span>
@@ -35,11 +35,14 @@
 
             </div>
         </a>
+    </div>
 
+    <div id="delete_n" class="delete"  onclick="removePop('n')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item N">
                 <div class="bookmark-icon">
-                  N
+                    N
                     <span class="bookmark-desc">
                     네이버
                 </span>
@@ -47,20 +50,24 @@
 
             </div>
         </a>
+    </div>
 
 
-        <a href="https://naver.co.kr">
-            <div class="bookmark-item Y">
-                <div class="bookmark-icon">
-                    Y
-                    <span class="bookmark-desc">
+    <div id="delete_y" class="delete"  onclick="removePop('y')">
+        x
+        <a href="https://naver.co.kr" class="bookmark-item Y" >
+
+            <div class="bookmark-icon">
+                Y
+                <span class="bookmark-desc">
                     유튜버
                 </span>
-                </div>
-
             </div>
         </a>
+    </div>
 
+    <div id="delete_m" class="delete"  onclick="removePop('m')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item M">
                 <div class="bookmark-icon">
@@ -72,7 +79,10 @@
 
             </div>
         </a>
+    </div>
 
+    <div id="delete_i" class="delete"  onclick="removePop('i')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item I">
                 <div class="bookmark-icon">
@@ -84,7 +94,9 @@
 
             </div>
         </a>
-
+    </div>
+    <div id="delete_a" class="delete"  onclick="removePop('a')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item A">
                 <div class="bookmark-icon">
@@ -96,7 +108,10 @@
 
             </div>
         </a>
+    </div>
 
+    <div id="delete_t" class="delete"  onclick="removePop('t')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item T">
                 <div class="bookmark-icon">
@@ -108,11 +123,14 @@
 
             </div>
         </a>
+    </div>
 
+    <div id="delete_s" class="delete"  onclick="removePop('s')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item S">
                 <div class="bookmark-icon">
-                    s
+                    S
                     <span class="bookmark-desc">
                         쇼핑몰
                     </span>
@@ -120,7 +138,10 @@
 
             </div>
         </a>
+    </div>
 
+    <div id="delete_w" class="delete"  onclick="removePop('w')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item W">
                 <div class="bookmark-icon">
@@ -132,6 +153,10 @@
 
             </div>
         </a>
+    </div>
+
+    <div id="delete_p" class="delete"  onclick="removePop('p')">
+        x
         <a href="https://naver.co.kr">
             <div class="bookmark-item P">
                 <div class="bookmark-icon">
@@ -143,6 +168,10 @@
 
             </div>
         </a>
+    </div>
+
+    <div id="delete_m" class="delete"  onclick="removePop('m')">
+        x
 
         <a href="https://naver.co.kr">
             <div class="bookmark-item E">
@@ -155,73 +184,78 @@
 
             </div>
         </a>
-    <div class="addVBBtn">
-        <a href="javascript:openPop()" id ="add_button">
-            <div class="bookmark-item">
-                <div class="bookmark-icon">
-                    +
+    </div>
+
+    <div id="delete_plus" class="delete"  onclick="removePop('plus')">
+        x
+        <div class="addVBBtn"  id ="add_button">
+            <a href="javascript:openPop()">
+                <div class="bookmark-item">
+                    <div class="bookmark-icon">
+                        +
+                    </div>
+
                 </div>
-
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
 
     </div>
+</div>
 
 
 <div id="registerPop" style="display:none;">
-        <table>
-            <tr>
-                <td colspan="2" class="setting">
-                    북마크 추가됨
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    title
-                </th>
-                <td>
-                    <input type="text" id="title_add" placeholder="bookmark"/>
-                </td>
-            </tr>
+    <table>
+        <tr>
+            <td colspan="2" class="setting">
+                북마크 추가됨
+            </td>
+        </tr>
+        <tr>
+            <th>
+                title
+            </th>
+            <td>
+                <input type="text" id="title_add" placeholder="bookmark"/>
+            </td>
+        </tr>
 
-            <tr>
-                <th>
-                    url
-                </th>
-                <td>
-                    <input type="text" id="url_add" placeholder="www.bookmark.com"/>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    color
-                </th>
-                <td>
-                    <input type="color" id="color_add" placeholder="white"/>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    initial
-                </th>
-                <td>
-                    <input type="text" id="initial_add" placeholder="BM"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="td-btn">
+        <tr>
+            <th>
+                url
+            </th>
+            <td>
+                <input type="text" id="url_add" placeholder="www.bookmark.com"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                color
+            </th>
+            <td>
+                <input type="color" id="color_add" placeholder="white" onchange="javascript:turn_off_colorpicker();"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                initial
+            </th>
+            <td>
+                <input type="text" id="initial_add" placeholder="BM"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-btn">
                 <button class="btn" id="clickAdd" onclick="addContent();">
-                    취
+                    취소
                 </button>
-                </td>
-                <td class="td-btn">
+            </td>
+            <td class="td-btn">
                 <button class="btn" id="clickAdd2" onclick="addContent();">
                     완료
                 </button>
-                </td>
-            </tr>
-        </table>
+            </td>
+        </tr>
+    </table>
 
 
 </div>
