@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+
 html, body {
     height: 100%;
     margin: 0;
@@ -20,11 +22,13 @@ html, body {
     height: 100%;
 }
 
-#sidebar .side-logo {
+#sidebar .handwritten {
+    font-family: 'Nanum Brush Script', cursive;
+    font-weight: 900;
+    font-size: 500%;
+    color: #ffc870;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
+    margin: 0 66px;
 }
 
 #sidebar .side-text {
