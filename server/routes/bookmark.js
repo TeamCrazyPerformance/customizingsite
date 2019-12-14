@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var path = require('path');
 var mysql = require('mysql');
 var db = require('../db');
 var authMiddleware = require('../middlewares/auth');
