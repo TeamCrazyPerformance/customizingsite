@@ -328,4 +328,66 @@ router.get('/date/:date', authMiddleware, function(req, res, next) {
     });
 });
 
+// Calendar Item By Account
+router.get('/:account/date/:date', function(req, res, next) {
+    const account = req.params.account;
+
+    let query = "SELECT user_id FROM ?? WHERE ??=?";
+    const table = ["user_account", "account", account];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+                let query = "SELECT user_id, public FROM ?? WHERE ??=?";
+                const table = ["calendar", "user_id", user_id];
+                query = mysql.format(query, table);
+
+                db.query(query, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg: "Database connection error"});
+                    } else {
+                        let is_public = null;
+
+                        if(rows.length === 1) {
+                            is_public = !!rows[0].public;
+                        }
+
+                        if (is_public) {
+                            let query = "SELECT item_id, todo FROM ?? WHERE ??=? AND ??=?";
+                            const table = ["calendar_item", "user_id", user_id, "date", req.params.date];
+                            query = mysql.format(query, table);
+
+                            db.query(query, function(err, rows) {
+                                if (err) {
+                                    res.status(500).json({errorMsg: "Database connection error"});
+                                } else {
+                                    let items = [];
+                                    rows.forEach((v, k) => {
+                                        items.push({
+                                            itemId: v.item_id,
+                                            todo: v.todo,
+                                        });
+                                    });
+
+                                    res.json({
+                                        items: items
+                                    });
+                                }
+                            });
+                        } else {
+                            res.status(403).json({errorMsg: "Not a public account"});
+                        }
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "Account Not Found"});
+            }
+        }
+    });
+});
+
 module.exports = router;
