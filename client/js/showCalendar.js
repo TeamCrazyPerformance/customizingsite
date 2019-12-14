@@ -14,6 +14,7 @@ if(first.getFullYear() % 4 === 0){
     pageYear = notLeapYear;
 }
 
+// 1. 달력 출력
 function showCalendar(){
     let monthCnt = 100;
     let cnt = 1;
@@ -41,6 +42,7 @@ function showCalendar(){
 }
 
 showCalendar();
+// 2. 달력 업데이트
 function removeCalendar(){
     let catchTr = 100;
     for(var i = 100; i< 106; i++){
@@ -206,6 +208,8 @@ function reshowingList(){
     }
 
 }
+
+// 투두리스트
 var inputBox = document.getElementById('input-box');
 var inputDate = document.getElementById('input-data');
 var inputList = document.getElementById('input-list');
@@ -229,6 +233,7 @@ function addTodoList(){
     todoList[keyValue].push(inputBox.value);
     dataCnt++;
     inputBox.value = '';
+
     $div.addEventListener('click',checkList);
     $btn.addEventListener('click',deleteTodo);
     function deleteTodo(){
@@ -249,3 +254,14 @@ $(document).ready(function () {
     clickStart();
     reshowingList();
 });
+
+
+
+/*
+* 1. 투두리스트 엔터이벤트
+*
+* 3. var => let 바꾸기
+* 4. 함수 주석달기
+*
+*
+* */
