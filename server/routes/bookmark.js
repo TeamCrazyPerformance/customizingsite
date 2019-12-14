@@ -147,4 +147,98 @@ router.post('/', authMiddleware, [
     });
 });
 
+// Add Bookmark
+router.post('/add', authMiddleware, [
+    check('title').isString(),
+    check('url').isString(),
+    check('color').isString(),
+    check('initial').isString(),
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errorMsg: "Bad Parameter", errors: errors.array() })
+    }
+
+    const email = req.decoded.email;
+
+    let query = "SELECT user_id, email FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+
+                let query = "INSERT INTO ?? SET ?";
+                const table = ["bookmark_item"];
+                query = mysql.format(query, table);
+
+                const bookmark_item = {
+                    user_id: user_id,
+                    title: req.body.title,
+                    url: req.body.url,
+                    color: req.body.color,
+                    initial: req.body.initial
+                };
+
+                db.query(query, bookmark_item, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg : "Cannot Save Bookmark Item"});
+                    } else {
+                        res.status(201).json({message : "Success"});
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "User Not Found"});
+            }
+        }
+    });
+});
+
+// Modify Bookmark Item
+router.put('/:itemId', authMiddleware, [
+    check('title').isString(),
+    check('url').isString(),
+    check('color').isString(),
+    check('initial').isString(),
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errorMsg: "Bad Parameter", errors: errors.array() })
+    }
+
+    const email = req.decoded.email;
+
+    let query = "SELECT user_id, email FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+
+                let query = "UPDATE bookmark_item SET title = ?, url = ?, color = ?, initial = ?, modified_date = current_timestamp() WHERE item_id=? AND user_id=?";
+                const table = [req.body.title, req.body.url, req.body.color, req.body.initial, req.params.itemId, user_id];
+                query = mysql.format(query, table);
+
+                db.query(query, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg : "Cannot Modify Bookmark Item"});
+                    } else {
+                        res.json({message : "Success"});
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "User Not Found"});
+            }
+        }
+    });
+});
+
 module.exports = router;
