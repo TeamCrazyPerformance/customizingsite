@@ -1,0 +1,132 @@
+
+.content-wrap{
+    width: 100%;
+    margin:0 auto;
+    border: 4px solid rgba(161, 161, 161, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFFFF;
+
+}
+
+/*resume*/
+
+
+/*projects*/
+.project-photo{
+    display: inline-block;
+}
+.project-content{
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+.project-title{
+    display: inline-block;
+}
+/*contact*/
+
+.contact-wrap {
+    direction: ltr;
+    text-align: left;
+    width: 414px;
+    height: 277px;
+    visibility: inherit;
+
+    /*common*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: 0 0;
+}
+#contact-wrap {
+    position: relative;
+    margin: 2px 0px 1px calc((100% - 980px) * 0.5);
+    left: 20px;
+    grid-area: 3 / 1 / 6 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+.contact-form {
+    display: block;
+    direction: ltr;
+    text-align: left;
+    /*common*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: 0 0;
+}
+
+#contact-form {
+
+}
+
+.content-wrap{
+    direction: ltr;
+    display: block;
+    min-width: 180px;
+    max-width: 980px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    /*common*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: 0 0;
+}
+#content-wrap{}
+
+#field1{}
+#field2{}
+.field{
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid rgba(176, 176, 176, 1);
+    color: #605E5E;
+    margin: 0 0 5px;
+    width: 100%;
+    -webkit-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font: normal normal normal 14px/1.4em fbbluegothicl,serif;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+input {
+    box-sizing: border-box;
+
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 11px system-ui;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
