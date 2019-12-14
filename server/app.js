@@ -9,6 +9,7 @@ var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
 var albumRouter = require('./routes/album');
 var bookmarkRouter = require('./routes/bookmark');
+var calendarRouter = require('./routes/calendar');
 
 var app = express();
 
@@ -27,5 +28,6 @@ app.use('/auth', authRouter);
 app.use('/user', userRouter);
 app.use('/album', albumRouter);
 app.use('/bookmark', bookmarkRouter);
+app.use('/calendar', calendarRouter);
 
 module.exports = app;
