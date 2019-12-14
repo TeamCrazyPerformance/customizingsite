@@ -201,4 +201,37 @@ router.put('/:itemId', authMiddleware, [
     });
 });
 
+// Delete Calendar Item
+router.delete('/:itemId', authMiddleware, function(req, res, next) {
+    const email = req.decoded.email;
+
+    let query = "SELECT user_id, email FROM ?? WHERE ??=?";
+    const table = ["user", "email", email];
+    query = mysql.format(query, table);
+
+    db.query(query, function(err, rows) {
+        if(err) {
+            res.status(500).json({errorMsg : "Database connection error"});
+        } else {
+            if(rows.length === 1) {
+                const user_id = rows[0].user_id;
+
+                let query = "DELETE FROM ?? WHERE ??=? AND ??=?";
+                const table = ["calendar_item", "item_id", req.params.itemId, "user_id", user_id];
+                query = mysql.format(query, table);
+
+                db.query(query, function(err, rows) {
+                    if (err) {
+                        res.status(500).json({errorMsg : "Cannot Delete Calendar Item"});
+                    } else {
+                        res.json({message : "Success"});
+                    }
+                });
+            } else {
+                res.status(404).json({errorMsg : "User Not Found"});
+            }
+        }
+    });
+});
+
 module.exports = router;
