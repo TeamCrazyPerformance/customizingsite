@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
 var albumRouter = require('./routes/album');
+var bookmarkRouter = require('./routes/bookmark');
 
 var app = express();
 
@@ -25,5 +26,6 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
 app.use('/album', albumRouter);
+app.use('/bookmark', bookmarkRouter);
 
 module.exports = app;
