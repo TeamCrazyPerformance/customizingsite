@@ -132,7 +132,7 @@ router.post('/contact', authMiddleware, [
 });
 
 // Contact Sendmail
-router.post('/contact/sendmail/:account', authMiddleware, [
+router.post('/contact/:account/sendmail', [
     check('name').isString(),
     check('email').isString(),
     check('subject').isString(),
