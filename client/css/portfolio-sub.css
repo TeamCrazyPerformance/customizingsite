@@ -1,4 +1,4 @@
-
+/*기*/
 .content-wrap{
     width: 100%;
     margin:0 auto;
@@ -6,15 +6,60 @@
     border-radius: 20px;
     overflow: hidden;
     background: #FFFFFF;
+}
+
+
+
+
+
+
+/*-------------------------------------------------------------------*/
+/*resume*/
+#resume-menubar{
+    border-top: rgb(71,71,71) 2px solid;
+    text-decoration:none;
+
+}
+.resume-wrap{
+    margin-top: 5%;
+
+}
+.resume-title{
+    margin-top: 3%;
+    font-weight: bolder;
+    color: white;
+    background:#6E6E6E ;
+    width:160px;
+    height:30px;
+    text-align: center;
+    vertical-align: center;
+    line-height: 30px;
+}
+.resume-content{
+    padding: 10px;
+
 
 }
 
-/*resume*/
 
 
+
+/*-------------------------------------------------------------------*/
 /*projects*/
+#project-menubar{
+
+    border-top: rgb(71,71,71) 2px solid;
+    text-decoration:none;
+
+}
+.project-wrap{
+    margin-top: 5%;
+}
 .project-photo{
-    display: inline-block;
+    float: left;
+    background: #6E6E6E;
+    width: 50px;
+    height: 50px;
 }
 .project-content{
     display: inline-block;
@@ -23,9 +68,18 @@
 }
 .project-title{
     display: inline-block;
+    font-weight: bolder;
+    text-align: ;
 }
-/*contact*/
 
+
+
+/*-------------------------------------------------------------------*/
+/*contact*/
+#contact-menubar{
+    border-top: rgb(71,71,71) 2px solid;
+    text-decoration:none;
+}
 .contact-wrap {
     direction: ltr;
     text-align: left;

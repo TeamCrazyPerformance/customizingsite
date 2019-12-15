@@ -163,7 +163,7 @@ html, body{
         float: left;
         width: 550px;
         height: 600px;
-        padding: 80px 20px 20px 20px;
+        padding: 55px 20px 20px 20px;
     }
 
     .content-right table tr td{
@@ -173,7 +173,11 @@ html, body{
         font-size: 15px;
         font-weight: lighter;
     }
+    #home-menubar {
+        border-bottom: rgb(71,71,71) 2px solid;
+        text-decoration:none;
 
+    }
     .menubar ul{
         height:40px;
         list-style:none;
