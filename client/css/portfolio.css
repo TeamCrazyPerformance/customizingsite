@@ -47,15 +47,45 @@ html, body{
 
 }
 
+#home-menubar {
+    border-bottom: rgb(71,71,71) 2px solid;
+    text-decoration:none;
 
-.menu{
-    display: inline-block;
-    font-size: 15px;
-    font-weight: bolder;
-    margin: 5px 50px 10px 0;
-    position: relative;
-    z-index: 1;
 }
+.menubar ul{
+    height:40px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position: center;
+}
+
+.menubar li{
+    float:left;
+    margin-right: 7px;
+    width:23%;
+}
+
+.menubar li a{
+    background: white;
+    color:black;
+    display:block;
+    font-weight:normal;
+    line-height:50px;
+    margin:0px;
+    text-align:center;
+    text-decoration:none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a{
+    background: rgb(71,71,71);
+    color:#FFFFFF;
+    text-decoration:none;
+
+}
+
+
+
 .menu:before{
     content: "";
     position: absolute;
@@ -65,6 +95,8 @@ html, body{
     height: 2px;
     border-bottom:2px solid #6E6E6E ;
 }
+
+
 
 
 .content-right{
@@ -98,7 +130,7 @@ html, body{
     margin-left: 130px;
     padding: 30px 0 5px 30px;
 }
-.data-photo{
+.data-image{
     height:10px;
     width:5px;
     margin-left: 30px;
@@ -236,8 +268,7 @@ html, body{
     }
 
 
-
-    .data-photo{
+    .data-image{
         height:120px;
         width:80px;
         margin: 8% 2% 2% 6% ;
@@ -246,10 +277,13 @@ html, body{
         float: left;
     }
 
+
+
     .data-Ename {
         font-size: 16px;
         position: relative;
-        left: 7%;
+        margin-top: 5%;
+        left: 1%;
     }
 
     .data-Kname{
@@ -257,8 +291,14 @@ html, body{
         font-weight: bold;
 
         display: inline-block;
-        margin:8% 0 1% 7% ;
-        padding: 25px 0 5% 0;
+
+    }
+
+    .name-wrap{
+        margin:10% 0 5% 7% ;
+        padding:  0 10% 0;
+        position: relative;
+        left: 7%;
     }
     .career {
        overflow-y:scroll;
@@ -266,8 +306,10 @@ html, body{
     }
 
 
-
-
+    .image-upload {
+       position: relative;
+        top: 20%;
+        left: 25%;
 }
 
 
