@@ -138,4 +138,24 @@ router.put('/account', authMiddleware, [
   });
 });
 
+router.get('/myinfo', authMiddleware, (req, res) => {
+  const email = req.decoded.email;
+
+  let query = "SELECT user_id, email, nickname FROM ?? WHERE ??=?";
+  const table = ["user", "email", email];
+  query = mysql.format(query, table);
+
+  db.query(query, function(err, rows) {
+    if (err) {
+      res.status(500).json({errorMsg: "Database connection error"});
+    } else {
+      if (rows.length === 1) {
+        res.status(200).json({email : email, nickname : rows[0].nickname});
+      } else {
+        res.status(404).json({errorMsg : "User Not Found"});
+      }
+    }
+  });
+});
+
 module.exports = router;
