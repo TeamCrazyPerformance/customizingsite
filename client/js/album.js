@@ -4,6 +4,7 @@ function getMyAlbumInfo() {
         headers: {"x-access-token": localStorage.token},
         success: function(data) {
             initIEPopup(data);
+            initAddPopup();
 
             $(".handwritten").text(data.handwritten);
             $(".side-text").text(data.description);
@@ -27,16 +28,16 @@ function getMyAlbumInfo() {
 }
 
 function initIEPopup(data) {
-    $("#handwritten").val(data.handwritten);
-    $("#description").val(data.description);
-    $("#isPublic").attr('checked', data.isPublic);
+    $("#ieform input[name='handwritten']").val(data.handwritten);
+    $("#ieform input[name='description']").val(data.description);
+    $("#ieform input[name='isPublic']").attr('checked', data.isPublic);
 
     $("#ieform").submit(function(event){
         event.preventDefault();
         var data = {
-            handwritten: $("#handwritten").val(),
-            description: $("#description").val(),
-            isPublic: $("#isPublic").is(":checked")
+            handwritten: $("#ieform input[name='handwritten']").val(),
+            description: $("#ieform input[name='description']").val(),
+            isPublic: $("#ieform input[name='isPublic']").is(":checked")
         };
 
         $.ajax({
@@ -47,6 +48,36 @@ function initIEPopup(data) {
             data: JSON.stringify(data),
             success: function(data) {
                 alert("정보가 수정되었습니다.");
+                location.reload();
+            },
+            error: function() {
+                alert("잠시 후 다시 시도해주세요.");
+            }
+        });
+    });
+}
+
+function initAddPopup() {
+    $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val()
+
+    $("#addform").submit(function(event){
+        event.preventDefault();
+
+        var form = $('#addform')[0];
+        var data = new FormData(form);
+
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "http://cs.kuvh.kr/api/album/upload",
+            headers: {"x-access-token": localStorage.token},
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function(data) {
+                alert("사진이 추가되었습니다.");
                 location.reload();
             },
             error: function() {
