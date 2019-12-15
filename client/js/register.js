@@ -46,6 +46,7 @@ $(document).ready(function(){
                     password: $('input#password').val()
                 },
                 success: function(data) {
+                    alert("회원가입을 완료하였습니다.");
                     location.href="/";
                 },
                 error: function() {
