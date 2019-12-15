@@ -8,9 +8,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="js/jquery-3.4.1.min.js"></script>
+
+    <script src="js/portfolio.js"></script>
     <title>Portfolio/projects</title>
 </head>
-<body>
+<body >
 <div class="main">
     <div class="main">
         <div class="content-wrap">
@@ -33,31 +35,105 @@
 
 
                 <div class="project-wrap" style="overflow: scroll; width: 550px; height: 500px;">
-                    <div  class="project-photo"> </div>
-                    <div class="project-letter">
-                    <div class="project-title" > <span class="title-number">Project 01</span>  |  <span class="title-content"> title</span> </div>
-                    <div class="project-content" > I'm a Paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to write more. Tell a story about yourself. </div>
-                    </div>
-                    <hr>
-
-                    <div  class="project-photo"> </div>
-                    <div class="project-letter">
-                    <div class="project-title" > <span class="title-number">Project 02</span>  |  <span class="title-content"> title</span> </div>
-                    <div class="project-content" > I'm a Paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to write more. Tell a story about yourself. </div>
+                    <div class="addBtn"  id ="add_button">
+                        <button value="Add" onclick="openPop()">ADD</button>
                     </div>
 
+                    <div id="delete_1" class="delete"  >
+                        <span onclick="removePop('1')">x</span>
+
+                        <div  class="project-photo"> </div>
+                            <div class="project-letter">
+                            <div class="project-title" > <span class="title-number">Project 01</span>  |  <span class="title-content" contenteditable="true"> title</span> </div>
+                            <div class="project-content" contenteditable="true" > I'm a Paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to write more. Tell a story about yourself. </div>
+                            </div>
+
+
                     <hr>
-                    <div  class="project-photo"></div>
-                    <div class="project-letter">
-                    <div class="project-title" > <span class="title-number">Project 03</span>  |  <span class="title-content"> title</span> </div>
-                    <div class="project-content" > I'm a Paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to write more. Tell a story about yourself. </div>
                     </div>
+
+                    <div id="delete_2" class="delete"  >
+                        <span onclick="removePop('2')">x</span>
+
+                        <div  class="project-photo"> </div>
+                        <div class="project-letter">
+                        <div class="project-title" > <span class="title-number">Project 02</span>  |  <span class="title-content" contenteditable="true"> title</span> </div>
+                        <div class="project-content"contenteditable="true" > I'm a Paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to write more. Tell a story about yourself. </div>
+                        </div>
+
+
+                    <hr>
+                    </div>
+
+                    <div id="delete_3" class="delete" >
+                        <span  onclick="removePop('3')">x</span>
+
+                        <div  class="project-photo"> </div>
+                        <div class="project-letter">
+                            <div class="project-title" > <span class="title-number">Project 03</span>  |  <span class="title-content" contenteditable="true"> title</span> </div>
+                            <div class="project-content" contenteditable="true"> I'm a Paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to write more. Tell a story about yourself. </div>
+                        </div>
+
                         <hr>
-                    <div  class="project-photo"></div>
-                    <div class="project-letter">
-                    <div class="project-title" > <span class="title-number">Project 04</span>  |  <span class="title-content"> title </span></div>
-                    <div class="project-content" > I'm a Paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to write more. Tell a story about yourself. </div>
                     </div>
+
+                    <!-- 추가버튼 -->
+
+
+                    </div>
+                </div>
+
+
+                    <!-- 추가 창  -->
+                    <div id="registerPop" style="display:none;">
+                        <table>
+                            <tr>
+                                <td colspan="2" class="setting">
+                                    프로젝트 추가
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Title
+                                </th>
+                                <td>
+                                    <input type="text" id="title_add" placeholder="Title"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    Content
+                                </th>
+                                <td>
+                                    <textarea id="content_add" placeholder="Content"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    URL
+                                </th>
+                                <td>
+                                    <input type="url" id="url_add" placeholder="URL"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="td-btn">
+                                    <button class="btn" id="clickAdd" onclick="addContent();">
+                                        취소
+                                    </button>
+                                </td>
+                                <td class="td-btn">
+                                    <button class="btn" id="clickAdd2" onclick="addContent();">
+                                        완료
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
                 </div>
 
             </div>
@@ -65,7 +141,7 @@
         </div>
 
     </div>
-</div>
+
 </body>
 </html>
 
