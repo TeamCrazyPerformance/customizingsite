@@ -1,7 +1,7 @@
 $(document).on('click','.gg-element',function(){
   var selected=$(this);
-  var prev=$(this).prev().find('img');
-  var next=$(this).next().find('img');
+  var prev=$(this).prev();
+  var next=$(this).next();
   $('#gg-screen').show();
   var l=$(".gg-element").length-1;
   var p=$(".gg-element").index(selected);
@@ -38,7 +38,7 @@ $(document).on('click','.gg-element',function(){
   });
   $(document).on('click','.gg-prev',function(){
     selected=selected.prev();
-    prev=selected;
+    prev=selected.first();
     var previmg='<img src="'+ prev.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
     $(".gg-image").html(previmg);
     p=$(".gg-element").index(selected);
@@ -48,7 +48,7 @@ $(document).on('click','.gg-element',function(){
   });
   $(document).on('click','.gg-nxt',function(){
     selected=selected.next();
-    next=selected;
+    next=selected.first();
     var nxtimg='<img src="'+ next.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
     $(".gg-image").html(nxtimg);
     p=$(".gg-element").index(selected);
@@ -59,7 +59,7 @@ $(document).on('click','.gg-element',function(){
   $(document).on('keydown',function(e) {
     if(e.keyCode == 37 && p>0) {
       selected=selected.prev();
-      prev=selected;
+      prev=selected.first();
       var previmg='<img src="'+ prev.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
       $(".gg-image").html(previmg);
       p=$(".gg-element").index(selected);
@@ -69,7 +69,7 @@ $(document).on('click','.gg-element',function(){
     }
     else if(e.keyCode == 39 && p < l) {
       selected=selected.next();
-      next=selected;
+      next=selected.first();
       var nxtimg='<img src="'+ next.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
       $(".gg-image").html(nxtimg);
       p=$(".gg-element").index(selected);
