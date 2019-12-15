@@ -27,7 +27,7 @@
 .resume-title{
     margin-top: 3%;
     font-weight: bolder;
-    color: white;
+    color: #FFBF00;
     background:#6E6E6E ;
     width:160px;
     height:30px;
@@ -57,21 +57,47 @@
 }
 .project-photo{
     float: left;
-    background: #6E6E6E;
-    width: 50px;
-    height: 50px;
+    background: #D8D8D8;
+    width: 120px;
+    height: 150px;
+    margin-top: 3.5%;
+
 }
 .project-content{
-    display: inline-block;
+
     position: relative;
     top: 10px;
+    margin-bottom: 7%;
 }
 .project-title{
-    display: inline-block;
+
     font-weight: bolder;
-    text-align: ;
+    text-align: left;
+    vertical-align: center;
+    align-content: center;
+    margin: 3% 0 0 2%;
 }
 
+.project-title .title-number {
+    color: white;
+    background:#6E6E6E ;
+}
+
+.project-title .title-content {
+    color: #FFBF00;
+    background: none;
+    font-size: 25px;
+    position: relative;
+    left: 2%;
+}
+
+.project-letter{
+    display: inline;
+    align-content: center;
+
+    position: relative;
+    left: 4%;
+}
 
 
 /*-------------------------------------------------------------------*/
@@ -80,24 +106,44 @@
     border-top: rgb(71,71,71) 2px solid;
     text-decoration:none;
 }
+
+table {
+    margin: 9% 0 0 15%;
+    padding: 5% 5% 0 5%;
+    color: #6E6E6E;
+    width: 160px;
+
+}
+table th{
+    border: 1px solid black;
+    padding: 1.5%;
+    background: rgb(71,71,71);
+    color: white;
+}
+
 .contact-wrap {
+    border: #BDBDBD 2px outset;
+
     direction: ltr;
     text-align: left;
-    width: 414px;
-    height: 277px;
+    width: 50%;
+    height: 50%;
     visibility: inherit;
 
-    /*common*/
-    margin: 0;
-    padding: 0;
-    border: 0;
+    margin: 9% 5% 5% 3%;
+
+    padding: 4% 4% 2% 4%;
+
     outline: 0;
-    vertical-align: baseline;
-    background: 0 0;
+    vertical-align:  baseline;
+
+    position: relative;
+
+    left: 14%;
 }
 #contact-wrap {
     position: relative;
-    margin: 2px 0px 1px calc((100% - 980px) * 0.5);
+    margin: 2px 0 1px calc((100% - 980px) * 0.5);
     left: 20px;
     grid-area: 3 / 1 / 6 / 2;
     justify-self: start;
@@ -121,7 +167,7 @@
 
 }
 
-.content-wrap{
+.contact-content-wrap{
     direction: ltr;
     display: block;
     min-width: 180px;
@@ -138,7 +184,7 @@
     vertical-align: baseline;
     background: 0 0;
 }
-#content-wrap{}
+
 
 #field1{}
 #field2{}
@@ -159,7 +205,7 @@
     border-radius: 0;
 }
 
-input {
+input{
     box-sizing: border-box;
 
     -webkit-writing-mode: horizontal-tb !important;
@@ -183,4 +229,35 @@ input {
     border-style: inset;
     border-color: initial;
     border-image: initial;
+}
+
+textarea{
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid rgba(176, 176, 176, 1);
+    color: #605E5E;
+    margin: 0 0 5px;
+    width: 100%;
+    -webkit-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font: normal normal normal 14px/1.4em fbbluegothicl,serif;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+.submit{
+    color: #2F2E2E;
+    font: normal normal normal 14px/1.4em fbbluegothicl,serif;
+}
+
+button{
+    margin-top: 3%;
+    outline: 0;
+    vertical-align: baseline;
+    background: 0 0;
+
+
+
 }
