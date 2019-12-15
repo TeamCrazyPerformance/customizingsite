@@ -8,9 +8,32 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/grid-gallery.js"></script>
     <script type="text/javascript" src="js/album.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
 <div id="gg-screen"></div>
+<div id="iepopup" class="modal" style="display: none;">
+    <h2>앨범 정보 수정</h2>
+    <form id="ieform">
+        <div class="form-group">
+            <label for="handwritten">손글씨</label>
+            <input type="text" name="handwritten" class="text required" id="handwritten" placeholder="손글씨를 입력해주세요" required>
+        </div>
+        <div class="form-group">
+            <label for="description">설명</label>
+            <input type="text" name="description" class="text required" id="description" placeholder="앨범 설명을 입력해주세요" required>
+        </div>
+        <div class="form-group">
+            <label for="isPublic">공개여부</label>
+            <input type="checkbox" name="isPublic" id="isPublic">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="저장" class="button submit">
+        </div>
+    </form>
+</div>
 <div id="container">
     <div id="sidebar">
         <div class="handwritten"></div>
@@ -24,8 +47,8 @@
         <nav>
             <ul>
                 <li><a href="/" class="fas fa-home"></a></li>
-                <li><a href="#" class="fas fa-edit"></a></li>
-                <li><a href="#" class="fas fa-plus"></a></li>
+                <li><a href="#iepopup" rel="modal:open" class="fas fa-edit"></a></li>
+                <li><a href="#addpopup" rel="modal:open" class="fas fa-plus"></a></li>
             </ul>
         </nav>
     </div>
