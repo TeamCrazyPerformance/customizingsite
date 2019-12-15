@@ -17,6 +17,25 @@ function initMypage() {
         "\t\t\t\t\t\t</div>\n" +
         "\t\t\t\t\t</form>\n" +
         "\t\t\t\t</div>");
+
+    $("form").submit(function(event){
+        event.preventDefault();
+        var data = $(this).serializeArray();
+
+        $.ajax({
+            type: "PUT",
+            url: "http://cs.kuvh.kr/api/user/account",
+            headers: {"x-access-token": localStorage.token},
+            data: data,
+            success: function(data) {
+                alert("정보가 수정되었습니다.");
+                location.reload();
+            },
+            error: function() {
+                alert("잠시 후 다시 시도해주세요.");
+            }
+        });
+    });
 }
 
 $(document).ready(function() {
