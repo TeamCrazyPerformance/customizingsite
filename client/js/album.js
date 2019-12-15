@@ -18,8 +18,8 @@ function getMyAlbumInfo() {
             });
         },
         error: function() {
-            //TODO Login Check
-            alert("Fail to load data");
+            alert("로그인이 필요합니다.");
+            location.href="/login.html?backUrl=/album.html";
         }
     });
 }
