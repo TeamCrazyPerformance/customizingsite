@@ -113,6 +113,14 @@ body{
   position: fixed;
   bottom: 50%;
 }
+.gg-del{
+  position: fixed;
+  left: 50%;
+  margin-left: -19px;
+  font-size: 1em;
+  bottom: 0.5em;
+  color:#000;
+}
 @media (min-width:478px){
   .gg-element:nth-child(3n+0){
     grid-row-end: span 2;

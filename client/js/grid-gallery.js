@@ -8,17 +8,17 @@ $(document).on('click','.gg-element',function(){
   function buttons(){
     if (l > 1) {
       if (p == 0){
-        return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div>';
+        return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
       }
       else if (p == l) {
-        return '<div class="gg-close gg-bt">&times</div><div class="gg-prev gg-bt">&larr;</div>';
+        return '<div class="gg-close gg-bt">&times</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
       }
       else{
-        return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-prev gg-bt">&larr;</div>';
+        return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
       }
     }
     else{
-      return '<div class="gg-close gg-bt">&times</div>';
+      return '<div class="gg-close gg-bt">&times</div><div class="gg-del gg-bt">&rarr;</div>';
     }
   }
   buttons();
@@ -78,4 +78,10 @@ $(document).on('click','.gg-element',function(){
       $("#gg-screen").html('<div class="gg-image">'+ nxtimg + '</div>' + content);
     }
   });
+  $(document).off('click', '.gg-del');
+  $(document).on('click', '.gg-del', function() {
+    if (confirm("정말 삭제하시겠습니까?")) {
+      delAlbumItem(selected.first().attr('data-id'));
+    }
+  })
 });

@@ -68,6 +68,21 @@ function getAccountAlbumInfo(account) {
     });
 }
 
+function delAlbumItem(itemId) {
+    $.ajax({
+        type: "DELETE",
+        url: `http://cs.kuvh.kr/api/album/${itemId}`,
+        contentType: 'application/json',
+        headers: {"x-access-token": localStorage.token},
+        success: function(data) {
+            alert("정상적으로 삭제되었습니다.");
+            location.reload();
+        },
+        error: function() {
+            alert("잠시 후 다시 시도해주세요.");
+        }
+    });
+}
 
 function initIEPopup(data) {
     $("#ieform input[name='handwritten']").val(data.handwritten);
