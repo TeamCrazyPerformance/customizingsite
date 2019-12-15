@@ -24,7 +24,7 @@ $(document).on('click','.gg-element',function(){
   buttons();
   var content=buttons();
   $("#gg-screen").html('<div class="gg-image"></div>' + content);
-  $(".gg-image").html('<img src="'+ $('img', this).attr('src') +'">');
+  $(".gg-image").html('<img src="'+ $(this).css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">');
   //$("body").css('overflow','hidden');
   $(document).on('click','.gg-close',function(){
     $("#gg-screen").hide();
@@ -38,8 +38,8 @@ $(document).on('click','.gg-element',function(){
   });
   $(document).on('click','.gg-prev',function(){
     selected=selected.prev();
-    prev=selected.find('img');
-    var previmg='<img src="'+ prev.attr('src') +'">';
+    prev=selected;
+    var previmg='<img src="'+ prev.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
     $(".gg-image").html(previmg);
     p=$(".gg-element").index(selected);
     buttons();
@@ -48,8 +48,8 @@ $(document).on('click','.gg-element',function(){
   });
   $(document).on('click','.gg-nxt',function(){
     selected=selected.next();
-    next=selected.find('img');
-    var nxtimg='<img src="'+ next.attr('src') +'">';
+    next=selected;
+    var nxtimg='<img src="'+ next.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
     $(".gg-image").html(nxtimg);
     p=$(".gg-element").index(selected);
     buttons();
@@ -59,8 +59,8 @@ $(document).on('click','.gg-element',function(){
   $(document).on('keydown',function(e) {
     if(e.keyCode == 37 && p>0) {
       selected=selected.prev();
-      prev=selected.find('img');
-      var previmg='<img src="'+ prev.attr('src') +'">';
+      prev=selected;
+      var previmg='<img src="'+ prev.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
       $(".gg-image").html(previmg);
       p=$(".gg-element").index(selected);
       buttons();
@@ -69,8 +69,8 @@ $(document).on('click','.gg-element',function(){
     }
     else if(e.keyCode == 39 && p < l) {
       selected=selected.next();
-      next=selected.find('img');
-      var nxtimg='<img src="'+ next.attr('src') +'">';
+      next=selected;
+      var nxtimg='<img src="'+ next.css('background-image').replace(/^url\(['"](.+)['"]\)/, '$1') +'">';
       $(".gg-image").html(nxtimg);
       p=$(".gg-element").index(selected);
       buttons();

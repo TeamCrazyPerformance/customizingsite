@@ -14,7 +14,7 @@ function getMyAlbumInfo() {
                 const d = new Date(obj.date);
                 const date = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
 
-                $(".gg-box").append(`<div class=\"gg-element\" data-id=\"${itemId}\"><img src=\"https://customizingsite.s3.ap-northeast-2.amazonaws.com/${imgKey}\"></div>`); //<div class="cover">${title} ${description} ${date}</div>
+                $(".gg-box").append(`<div class=\"gg-element\" data-id=\"${itemId}\" style=\"background-image:url(https://customizingsite.s3.ap-northeast-2.amazonaws.com/${imgKey})"\><div><br><br><span>${date}</span><h3>${title}</h3><p>${description}</p></div></div>`);
             });
         },
         error: function() {
