@@ -166,6 +166,8 @@ input, select, textarea {
 	}
 
 	#wrapper {
+		background-image: url('images/pic2.png');
+		background-size:cover;
 		-moz-animation: wrapper 2s forwards;
 		-webkit-animation: wrapper 2s forwards;
 		-ms-animation: wrapper 2s forwards;
@@ -177,9 +179,7 @@ input, select, textarea {
 		top: 0;
 		width: 100%;
 	}
-	#bg{
-		background-color: black;
-	}
+
 
 
 /* Main */
