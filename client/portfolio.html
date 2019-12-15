@@ -32,11 +32,28 @@
 
 
 
-                    <div class="data-wrap">
-                        <div  class="data-photo"> </div>
-                        <div class="data-Kname" > 주혜민 </div>
-                        <div class="data-Ename" > JU HYE MIN </div>
-                    </div>
+
+
+
+                        <div class="image-upload">
+
+
+                            <form action="" method=""  runat="server">
+                                <p><input type='file' id="real-input" accept="img/*" required multiple style="display: none"/>
+                                <img id="img-preview" src="#" alt="your img"/>
+                                </p>
+                                <button class="browse-btn" onclick="uploadFile();">UPLOAD</button>
+                            </form>
+
+
+                        </div>
+
+                        <div class="name-wrap">
+                            <div class="data-Kname" contenteditable="true"> 주혜민 </div>
+                            <div class="data-Ename" contenteditable="true" > JU HYE MIN </div>
+                        </div>
+
+
 
                 </div>
 
@@ -44,6 +61,7 @@
 
         </div>
         </div>
+<script src="js/portfolio.js"></script>
 </body>
 </html>
 
