@@ -46,11 +46,11 @@ $(document).ready(function(){
                     password: $('input#password').val()
                 },
                 success: function(data) {
-                    localStorage.token = data.token;
-                    alert('Got a token from the server! Token: ' + data.token);
+                    alert("회원가입을 완료하였습니다.");
+                    location.href="/";
                 },
                 error: function() {
-                    alert("Login Failed");
+                    alert("회원가입에 실패하였습니다.\n입력 내용을 확인해 주세요.");
                 }
             });
             return false;
