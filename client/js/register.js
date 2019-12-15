@@ -39,7 +39,7 @@ $(document).ready(function(){
             $.ajax({
                 cache: false,
                 type: "POST",
-                url: "http://cs.kuvh.kr/user/register",
+                url: "http://cs.kuvh.kr/api/user/register",
                 data: {
                     nickname: $('input#nickname').val(),
                     email: $('input#email').val(),

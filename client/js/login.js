@@ -4,7 +4,7 @@ $(document).ready(function(){
         $.ajax({
             cache: false,
             type: "POST",
-            url: "http://cs.kuvh.kr/auth/login",
+            url: "http://cs.kuvh.kr/api/auth/login",
             data: {
                 email: $('input#email').val(),
                 password: $('input#password').val()
