@@ -1,7 +1,7 @@
 $(document).on('click','.gg-element',function(){
   var selected=$(this);
-  var prev=$(this).prev();
-  var next=$(this).next();
+  var prev=$(this).prev().first();
+  var next=$(this).next().first();
   $('#gg-screen').show();
   var l=$(".gg-element").length-1;
   var p=$(".gg-element").index(selected);
