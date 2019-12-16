@@ -9,30 +9,33 @@
 /*
 1. home => 사진 및 프로필 설정
  */
-const browseBtn = document.querySelector('.browse-btn');
-const realInput = document.querySelector('#real-input');
+var sel_file;
 
-browseBtn.addEventListener('click',()=>{
-    realInput.click();
+$(document).ready(function () {
+    $("#input_img").on("change", handleImgFileSelect);
 });
 
+function handleImgFileSelect(e) {
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
 
-
-
-        // 사진파일 미리보기
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#img-preview').attr('src', e.target.result);
+    filesArr.forEach (function(f){
+        if(!f.type.match("image.*")){
+            alert("이미지 확장자만 가능합니다.");
+            return;
         }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+        sel_file=f;
 
-$("#real-input").change(function() {
-    readURL(this);
-});
+        var  reader = new FileReader();
+        reader.onload = function (e) {
+            $("#img").attr ("src", e.target.result);
+        };
+        reader.readAsDataURL(f);
+    });
+}
+        // 사진파일 미리보기
+
+
 /*
 2. resume => 파일 업로드
 */
