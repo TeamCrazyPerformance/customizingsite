@@ -98,7 +98,7 @@ input, select, textarea {
 			transition: none !important;
 		}
 
-	body, input, select, textarea {
+	body, select, textarea {
 		color: #fff;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 15pt;
@@ -112,7 +112,6 @@ input, select, textarea {
 		-webkit-transition: border-color 0.2s ease-in-out;
 		-ms-transition: border-color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out;
-		border-bottom: dotted 1px;
 		color: inherit;
 		outline: 0;
 		text-decoration: none;
@@ -537,3 +536,43 @@ input, select, textarea {
 			#header nav a:active {
 				font-size: 1em;
 			} }
+
+#mypage h2{
+	padding-bottom:16px;
+	text-transform:uppercase;
+	color:#414141;
+}
+
+.form-group {
+	margin: 15px 0;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+	color: #444;
+}
+
+.text {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 15px 10px;
+	border: 1px solid lightGrey;
+}
+
+.text::placeholder {
+	color: lightGrey;
+	font-style: italic;
+}
+
+.text.required::placeholder {
+	color: #c90000;
+}
+
+.button {
+	border: 1px solid #333;
+	background: #555;
+	color: white;
+	padding: 15px 40px;
+	font-size: 18px;
+}

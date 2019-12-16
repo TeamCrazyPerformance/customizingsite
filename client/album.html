@@ -3,14 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>앨범</title>
-    <link rel="stylesheet" href="css/album.css">
-    <link rel="stylesheet" href="css/grid-gallery.css">
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/grid-gallery.js"></script>
-    <script type="text/javascript" src="js/album.js"></script>
+    <link rel="stylesheet" href="/css/album.css">
+    <link rel="stylesheet" href="/css/grid-gallery.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="/js/grid-gallery.js"></script>
+    <script type="text/javascript" src="/js/album.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
 <div id="gg-screen"></div>
+<div id="iepopup" class="modal" style="display: none;">
+    <h2>앨범 정보 수정</h2>
+    <form id="ieform">
+        <div class="form-group">
+            <label>손글씨</label>
+            <input type="text" name="handwritten" class="text required" placeholder="손글씨를 입력해주세요" required>
+        </div>
+        <div class="form-group">
+            <label>설명</label>
+            <input type="text" name="description" class="text required" placeholder="앨범 설명을 입력해주세요" required>
+        </div>
+        <div class="form-group">
+            <label>공개여부</label>
+            <input type="checkbox" name="isPublic" id="isPublic">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="저장" class="button submit">
+        </div>
+    </form>
+</div>
+<div id="addpopup" class="modal" style="display: none;">
+    <h2>사진 추가</h2>
+    <form id="addform">
+        <div class="form-group">
+            <label>사진파일</label>
+            <input type="file" name="imgFile" id="imgFile" required>
+        </div>
+        <div class="form-group">
+            <label>제목</label>
+            <input type="text" name="title" class="text required" id="title" placeholder="제목을 입력해주세요" required>
+        </div>
+        <div class="form-group">
+            <label>설명</label>
+            <input type="text" name="description" class="text required" placeholder="설명을 입력해주세요" required>
+        </div>
+        <div class="form-group">
+            <label>날짜</label>
+            <input type="text" id="datepicker" class="text" name="date" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="저장" class="button submit">
+        </div>
+    </form>
+</div>
 <div id="container">
     <div id="sidebar">
         <div class="handwritten"></div>
@@ -20,7 +69,13 @@
     <div id="content">
         <div class="gg-box"></div>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        <nav>
+            <ul>
+                <li><a href="/" class="fas fa-home"></a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 </body>
 </html>
