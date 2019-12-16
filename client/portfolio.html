@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/portfolio.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/portfolio.js"></script>
     <title>Portfolio</title>
 </head>
 <body>
@@ -32,26 +33,23 @@
 
 
 
+                    <div class="name-wrap">
+                        <div class="data-Kname" contenteditable="true"> 주혜민 </div>
+                        <div class="data-Ename" contenteditable="true" > JU HYE MIN </div>
+                    </div>
 
 
 
-                        <div class="image-upload">
-
-
-                            <form action="" method=""  runat="server">
-                                <p><input type='file' id="real-input" accept="img/*" required multiple style="display: none"/>
-                                <img id="img-preview" src="#" alt="your img"/>
-                                </p>
-                                <button class="browse-btn" onclick="uploadFile();">UPLOAD</button>
-                            </form>
-
-
+                        <div class="img_wrap" >
+                            <input type="file" id="input_img"/>
+                        <div>
+                        <div class="img_preview">
+                            <img id="img" alt="Upload your photo"/>
                         </div>
+                    </div>
+                    </div>
 
-                        <div class="name-wrap">
-                            <div class="data-Kname" contenteditable="true"> 주혜민 </div>
-                            <div class="data-Ename" contenteditable="true" > JU HYE MIN </div>
-                        </div>
+
 
 
 
@@ -61,7 +59,7 @@
 
         </div>
         </div>
-<script src="js/portfolio.js"></script>
+
 </body>
 </html>
 
