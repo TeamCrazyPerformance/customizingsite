@@ -38,17 +38,17 @@ $(document).on('click','.gg-element',function(){
       } else {
           if (l > 1) {
               if (p == 0){
-                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt fas fa-trash"></div>';
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
               }
               else if (p == l) {
-                  return '<div class="gg-close gg-bt">&times</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt fas fa-trash"></div>';
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
               }
               else{
-                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt fas fa-trash"></div>';
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
               }
           }
           else{
-              return '<div class="gg-close gg-bt">&times</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt">&rarr;</div>';
+              return '<div class="gg-close gg-bt">&times</div><div class="gg-del gg-bt">&rarr;</div>';
           }
       }
   }
