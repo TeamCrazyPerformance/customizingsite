@@ -149,134 +149,114 @@ html, body{
 }
 
 
-@media(min-width: 850px){
-    .main{
+@media(min-width: 850px) {
+    .main {
         display: flex;
         align-items: center;
-        justify-content:  center;
+        justify-content: center;
         width: 100vw;
         height: 100vh;
         background: none;
     }
-    .content-wrap{
+
+    .content-wrap {
         width: 1000px;
         height: 600px;
-        margin:0 auto;
+        margin: 0 auto;
         border: 4px solid rgba(161, 161, 161, 0.5);
         border-radius: 5px;
         overflow: hidden;
         background: #FFFFFF;
     }
 
-    .content-left{
-        background-img:url('../img/port.jpg');
-        color:black;
+    .content-left {
+        background-img: url('../img/port.jpg');
+        color: black;
         float: left;
         width: 360px;
         height: 600px;
         padding: 90px 20px 20px 0;
     }
-    .main-wrap{
+
+    .main-wrap {
         text-align: center;
         margin: 20px 0 0 0;
     }
-    .main-year{
+
+    .main-year {
         font-size: 30px;
         font-weight: bold;
     }
-    .main-title{
+
+    .main-title {
         font-size: 50px;
         font-weight: bold;
         margin: 20px 0;
     }
 
-    .content-right{
+    .content-right {
         float: left;
         width: 550px;
         height: 600px;
         padding: 55px 20px 20px 20px;
     }
 
-    .content-right table tr td{
+    .content-right table tr td {
         height: 10px;
         width: 40px;
         text-align: center;
         font-size: 15px;
         font-weight: lighter;
     }
+
     #home-menubar {
-        border-bottom: rgb(71,71,71) 2px solid;
-        text-decoration:none;
+        border-bottom: rgb(71, 71, 71) 2px solid;
+        text-decoration: none;
 
     }
-    .menubar ul{
-        height:40px;
-        list-style:none;
-        margin:0;
-        padding:0;
+
+    .menubar ul {
+        height: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
         position: center;
     }
 
-    .menubar li{
-        float:left;
+    .menubar li {
+        float: left;
         margin-right: 7px;
-        width:23%;
+        width: 23%;
     }
 
-    .menubar li a{
+    .menubar li a {
         background: white;
-        color:black;
-        display:block;
-        font-weight:normal;
-        line-height:50px;
-        margin:0px;
-        text-align:center;
-        text-decoration:none;
+        color: black;
+        display: block;
+        font-weight: normal;
+        line-height: 50px;
+        margin: 0px;
+        text-align: center;
+        text-decoration: none;
     }
 
-    .menubar li a:hover, .menubar ul li:hover a{
-        background: rgb(71,71,71);
-        color:#FFFFFF;
-        text-decoration:none;
+    .menubar li a:hover, .menubar ul li:hover a {
+        background: rgb(71, 71, 71);
+        color: #FFFFFF;
+        text-decoration: none;
 
     }
 
 
-
-    .menu:before{
+    .menu:before {
         content: "";
         position: absolute;
         left: 0;
         bottom: 0;
         width: 105%;
         height: 2px;
-        border-bottom:2px solid #6E6E6E ;
+        border-bottom: 2px solid #6E6E6E;
     }
-    .data-wrap {
-        display: block;
-        margin: 40px 0 10px 0;
-        padding: 0 0 10px 0;
-        position: relative;
-        top: 4%;
-        left:23%;
-    }
-
-    .info {
-    position: relative;
-    left: 80%;
-        top: 20%;
-    }
-
-
-    .data-image{
-        height:120px;
-        width:80px;
-        margin: 8% 2% 2% 6% ;
-        padding: 30px;
-        background: #D8D8D8;
-        float: left;
-    }
-
 
 
     .data-Ename {
@@ -286,31 +266,33 @@ html, body{
         left: 1%;
     }
 
-    .data-Kname{
-        font-size: 30px;
-        font-weight: bold;
 
-        display: inline-block;
+    .name-wrap {
+        margin: 10% 0 5% 7%;
+        padding: 0 10% 0;
+       position: fixed;
 
     }
 
-    .name-wrap{
-        margin:10% 0 5% 7% ;
-        padding:  0 10% 0;
-        position: relative;
-        left: 7%;
-    }
-    .career {
-       overflow-y:scroll;
-        height:550px;
-    }
 
 
-    .image-upload {
-       position: relative;
-        top: 20%;
-        left: 25%;
+    .img_wrap{
+
+        margin: 10% 10% 10% 20%;
+
+        padding: 3%;
+
+    }
+    .img_preview{
+        max-width: 30%;
+        max-height: 50%;
+        margin-top: 5%;
+        background: #BDBDBD;
+        width: 170px;
+        height: 160px;
+    }
 }
+
 
 
 /*
