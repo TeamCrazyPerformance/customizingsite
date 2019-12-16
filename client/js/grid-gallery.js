@@ -1,3 +1,16 @@
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
 $(document).on('click','.gg-element',function(){
   var selected=$(this);
   var prev=$(this).prev().first();
@@ -6,20 +19,38 @@ $(document).on('click','.gg-element',function(){
   var l=$(".gg-element").length-1;
   var p=$(".gg-element").index(selected);
   function buttons(){
-    if (l > 1) {
-      if (p == 0){
-        return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
+      const account = getUrlVars()['account'];
+      if(account) {
+          if (l > 1) {
+              if (p == 0){
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div>';
+              }
+              else if (p == l) {
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-prev gg-bt">&larr;</div>';
+              }
+              else{
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-prev gg-bt">&larr;</div>';
+              }
+          }
+          else{
+              return '<div class="gg-close gg-bt">&times</div>';
+          }
+      } else {
+          if (l > 1) {
+              if (p == 0){
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt fas fa-trash"></div>';
+              }
+              else if (p == l) {
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt fas fa-trash"></div>';
+              }
+              else{
+                  return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt fas fa-trash"></div>';
+              }
+          }
+          else{
+              return '<div class="gg-close gg-bt">&times</div><div class="gg-edit gg-bt fas fa-edit"></div><div class="gg-del gg-bt">&rarr;</div>';
+          }
       }
-      else if (p == l) {
-        return '<div class="gg-close gg-bt">&times</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
-      }
-      else{
-        return '<div class="gg-close gg-bt">&times</div><div class="gg-nxt gg-bt">&rarr;</div><div class="gg-prev gg-bt">&larr;</div><div class="gg-del gg-bt fas fa-trash"></div>';
-      }
-    }
-    else{
-      return '<div class="gg-close gg-bt">&times</div><div class="gg-del gg-bt">&rarr;</div>';
-    }
   }
   buttons();
   var content=buttons();
@@ -83,5 +114,9 @@ $(document).on('click','.gg-element',function(){
     if (confirm("정말 삭제하시겠습니까?")) {
       delAlbumItem(selected.first().attr('data-id'));
     }
-  })
+  });
+  $(document).off('click', '.gg-edit');
+  $(document).on('click', '.gg-edit', function() {
+    editAlbumItem(selected.first().attr('data-id'));
+  });
 });
